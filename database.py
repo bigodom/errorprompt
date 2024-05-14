@@ -1,12 +1,16 @@
 import psycopg2
 from psycopg2 import OperationalError
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def create_connection():
     try:
         connection = psycopg2.connect(
             database="errorbase",
             user="postgres",
-            password="123",
+            password= os.getenv("DB_PASSWORD"),
             host="127.0.0.1",
             port="5432"
         )
