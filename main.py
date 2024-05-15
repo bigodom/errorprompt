@@ -1,25 +1,21 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from database import create_connection
+from pydantic import BaseModel
+from models import startup
 
 app = FastAPI()
 
-async def startup():
-    conexao = create_connection()
-    if conexao:
-        app.state.conexao = conexao
 
 
-async def shutdown():
+'''async def shutdown():
     conexao = app.state.conexao
     if conexao:
-        conexao.close()
-
-app.add_event_handler("startup", startup)
-app.add_event_handler("shutdown", shutdown)
+        conexao.close()'''
 
 @app.get("/usuarios")
 async def listar_usuarios():
-    conexao = app.state.conexao
+    startup()
+    conexao = create_connection()
     cursor = conexao.cursor()
 
     cursor.execute("SELECT * FROM usuario")
@@ -28,9 +24,9 @@ async def listar_usuarios():
     usuarios = []
     for r in resultados:
         usuario = {
-            "id": r[0],
-            "nome": r[1],
-            "email": r[2]
+            "nome": r[0],
+            "email": r[1],
+            'login': r[2]
         }
         usuarios.append(usuario)
     
