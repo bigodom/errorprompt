@@ -5,8 +5,6 @@ from models import startup
 
 app = FastAPI()
 
-
-
 '''async def shutdown():
     conexao = app.state.conexao
     if conexao:
@@ -14,9 +12,10 @@ app = FastAPI()
 
 @app.get("/usuarios")
 async def listar_usuarios():
-    startup()
     conexao = create_connection()
     cursor = conexao.cursor()
+
+    startup()
 
     cursor.execute("SELECT * FROM usuario")
     resultados = cursor.fetchall()

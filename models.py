@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from database import create_connection
 
-async def startup():
+def startup():
     conexao = create_connection()
     cursor = conexao.cursor()
 
@@ -11,7 +11,7 @@ async def startup():
                     login TEXT PRIMARY KEY,\
                     senha TEXT NOT NULL);')
     
-    cursor.execute('''CREATE TABLE Conference
+    cursor.execute('''CREATE TABLE IF NOT EXISTS Conference
                     (id SERIAL PRIMARY KEY,
                     store TEXT NOT NULL,
                     id_check INTEGER NOT NULL,
