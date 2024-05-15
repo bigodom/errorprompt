@@ -11,7 +11,7 @@ def startup():
                     login TEXT PRIMARY KEY,\
                     senha TEXT NOT NULL);')
     
-    cursor.execute('''CREATE TABLE IF NOT EXISTS Conference
+    cursor.execute('''CREATE TABLE IF NOT EXISTS conference
                     (id SERIAL PRIMARY KEY,
                     store TEXT NOT NULL,
                     id_check INTEGER NOT NULL,
