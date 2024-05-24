@@ -1,31 +1,31 @@
-from fastapi import FastAPI, HTTPException
-from database import create_connection
+from sqlalchemy import Column, Integer, String, Float, Date, ForeignKey
+from sqlalchemy.orm import relationship
+from datetime import datetime
+from database import Base
 
-def startup():
-    conexao = create_connection()
-    cursor = conexao.cursor()
+class User(Base):
+    __tablename__ = "users"
 
-    cursor.execute('CREATE TABLE IF NOT EXISTS usuario\
-                    (nome TEXT NOT NULL,\
-                    email TEXT NOT NULL,\
-                    login TEXT PRIMARY KEY,\
-                    senha TEXT NOT NULL);')
-    
-    cursor.execute('''CREATE TABLE IF NOT EXISTS conference
-                    (id SERIAL PRIMARY KEY,
-                    store TEXT NOT NULL,
-                    id_check INTEGER NOT NULL,
-                    sector TEXT NOT NULL,
-                    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    item_code INTEGER NOT NULL,
-                    ticket TEXT,
-                    id_reason INTEGER NOT NULL,
-                    quantity FLOAT NOT NULL,
-                    value FLOAT NOT NULL,
-                    obs TEXT,
-                    responsable TEXT,
-                    login_user TEXT NOT NULL);'''
-                    )
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True)
+    name = Column(String)
+    login = Column(String, unique=True, index=True)
+    password = Column(String)
+    role = Column(String)
 
-    conexao.commit()
-    cursor.close()
+class Conference(Base):
+    __tablename__ = 'conference'
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement='auto')
+    store = Column(String)
+    id_check = Column(Integer)
+    sector = Column(String)
+    date = Column(Date, default=datetime.now)
+    item_code = Column(Integer)
+    ticket = Column(String)
+    id_reason = Column(Integer)
+    quantity = Column(Float)
+    value = Column(Float)
+    obs = Column(String)
+    responsabel = Column(String)
+    login_user = Column(String)
