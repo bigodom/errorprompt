@@ -2,10 +2,27 @@ from pydantic import BaseModel, Field
 from datetime import date
 
 class ConferenceCreate(BaseModel):
-    pass
+    loja: int
+    id_checagem: int
+    setor: str
+    data_ocorrencia_erro: date
+    codigo_do_item: int
+    id_motivo: int
+    quantidade: float
+    valor: float
+    resposavel_pelo_erro: str
 
 class ConferenceResponse(BaseModel):
-    pass
+    id: int
+    loja: int
+    id_checagem: int
+    setor: str
+    data_ocorrencia_erro: date
+    codigo_do_item: int
+    id_motivo: int
+    quantidade: float
+    valor: float
+    resposavel_pelo_erro: str
 
 class UserBase(BaseModel):
     email: str

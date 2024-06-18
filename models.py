@@ -17,14 +17,14 @@ class Conference(Base):
     __tablename__ = 'conference'
 
     id = Column(Integer, primary_key=True, index=True, autoincrement='auto')
-    loja = Column(String)
+    loja = Column(Integer)
     id_checagem = Column(Integer)
     setor = Column(String)
     data_ocorrencia_erro = Column(Date)
     data_correcao_erro = Column(Date)
     data_cadastro_erro = Column(Date, default=datetime.now)
     codigo_do_item = Column(Integer)
-    codigo_de_barras = Column(String)
+    codigo_de_barras = Column(Integer)
     id_motivo = Column(Integer)
     quantidade = Column(Float)
     valor = Column(Float)
