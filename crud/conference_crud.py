@@ -1,7 +1,7 @@
 from fastapi import Depends, HTTPException, APIRouter
 from sqlalchemy.orm import Session
 from models import Conference
-from schemas import ConferenceCreate, ConferenceResponse
+from schemas import ConferenceCreate, ConferenceResponse, ConferenceUpdate
 from database import SessionLocal
 
 router = APIRouter()
@@ -35,8 +35,8 @@ def read_all_conferences(db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Conferences not found")
     return conferences
 
-@router.put("/conferences/{conference_id}", response_model=ConferenceCreate)
-def update_conference(conference_id: int, conference: ConferenceCreate, db: Session = Depends(get_db)):
+@router.put("/conferences/{conference_id}", response_model= ConferenceUpdate)
+def update_conference(conference_id: int, conference: ConferenceUpdate, db: Session = Depends(get_db)):
     db_conference = db.query(Conference).filter(Conference.id == conference_id).first()
     if db_conference is None:
         raise HTTPException(status_code=404, detail="Conference not found")
