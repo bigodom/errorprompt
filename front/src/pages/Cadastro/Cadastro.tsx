@@ -1,5 +1,6 @@
 import { Conference } from "../../types/Conference";
 import api from "../../services/useApi";
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useFormAction } from "react-router-dom";
 
 const Cadastro: React.FC = () => {
@@ -30,22 +31,42 @@ const Cadastro: React.FC = () => {
     }
 
     return (
-        <div>
-            <h1>Cadastro</h1>
-            <form onSubmit={handleCreateConference}>
-                <input type="text" name="loja" placeholder="Loja" />
-                <input type="text" name="id_checagem" placeholder="ID Checagem" />
-                <input type="text" name="setor" placeholder="Setor" />
-                <input type="text" name="data_ocorrencia_erro" placeholder="Data Ocorrência" />
-                <input type="text" name="codigo_do_item" placeholder="Código do Item" />
-                <input type="text" name="id_motivo" placeholder="ID Motivo" />
-                <input type="text" name="quantidade" placeholder="Quantidade" />
-                <input type="text" name="valor" placeholder="Valor" />
-                <input type="text" name="responsavel_pelo_erro" placeholder="Responsável pelo Erro" />
-                <button type="submit">Cadastrar</button>
-            </form>
-        </div>
-    );
+        <Container className="d-flex flex-column align-items-center mt-5">
+          <h1 className="mb-4">Cadastro</h1>
+          <Form onSubmit={handleCreateConference} style={{ width: '100%', maxWidth: '600px' }}>
+            <Form.Group controlId="formLoja" className="mb-3">
+              <Form.Control type="text" name="loja" placeholder="Loja" />
+            </Form.Group>
+            <Form.Group controlId="formIdChecagem" className="mb-3">
+              <Form.Control type="text" name="id_checagem" placeholder="ID Checagem" />
+            </Form.Group>
+            <Form.Group controlId="formSetor" className="mb-3">
+              <Form.Control type="text" name="setor" placeholder="Setor" />
+            </Form.Group>
+            <Form.Group controlId="formDataOcorrenciaErro" className="mb-3">
+              <Form.Control type="text" name="data_ocorrencia_erro" placeholder="Data Ocorrência" />
+            </Form.Group>
+            <Form.Group controlId="formCodigoDoItem" className="mb-3">
+              <Form.Control type="text" name="codigo_do_item" placeholder="Código do Item" />
+            </Form.Group>
+            <Form.Group controlId="formIdMotivo" className="mb-3">
+              <Form.Control type="text" name="id_motivo" placeholder="ID Motivo" />
+            </Form.Group>
+            <Form.Group controlId="formQuantidade" className="mb-3">
+              <Form.Control type="text" name="quantidade" placeholder="Quantidade" />
+            </Form.Group>
+            <Form.Group controlId="formValor" className="mb-3">
+              <Form.Control type="text" name="valor" placeholder="Valor" />
+            </Form.Group>
+            <Form.Group controlId="formResponsavelPeloErro" className="mb-3">
+              <Form.Control type="text" name="responsavel_pelo_erro" placeholder="Responsável pelo Erro" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Cadastrar
+            </Button>
+          </Form>
+        </Container>
+      );
 }
 
 export default Cadastro;
