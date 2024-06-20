@@ -29,5 +29,5 @@ class Conference(Base):
     quantidade = Column(Float)
     valor = Column(Float)
     obs = Column(String)
-    resposavel_pelo_erro = Column(String)
+    responsavel_pelo_erro = Column(String)
     usuario_lancamento_erro = Column(String) #quem errou, quem ta lançando erro, obs, valor

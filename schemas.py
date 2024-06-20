@@ -10,7 +10,7 @@ class ConferenceCreate(BaseModel):
     id_motivo: int
     quantidade: float
     valor: float
-    resposavel_pelo_erro: str
+    responsavel_pelo_erro: str
 
 class ConferenceResponse(BaseModel):
     id: int
@@ -22,7 +22,7 @@ class ConferenceResponse(BaseModel):
     id_motivo: int
     quantidade: float
     valor: float
-    resposavel_pelo_erro: str
+    responsavel_pelo_erro: str
     
 class ConferenceUpdate(BaseModel):
     loja: int
@@ -36,7 +36,7 @@ class ConferenceUpdate(BaseModel):
     quantidade: float
     valor: float
     obs: str
-    resposavel_pelo_erro: str
+    responsavel_pelo_erro: str
     usuario_lancamento_erro: str
 
 class UserBase(BaseModel):
