@@ -33,7 +33,7 @@ const Login: React.FC = () => {
   useEffect(() => {
     // Verifique se o usuário já está logado
     if (authenticated) {
-      navigate('/');  // Redirecione para /funcionarios se o usuário estiver logado
+      navigate('/erros');  // Redirecione para /funcionarios se o usuário estiver logado
     }
   }, [authenticated, navigate]);
 

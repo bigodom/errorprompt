@@ -2,6 +2,8 @@ import { BrowserRouter, Navigate, Outlet, Route, Routes } from "react-router-dom
 import { AuthProvider, useAuth } from "./Auth/AuthContext";
 import Login from "./pages/Login/Login";
 import Navbar from "./components/Navbar";
+import Principal from "./pages/principal/Principal";
+import Cadastro from "./pages/Cadastro/Cadastro";
 
 const AdminRoutes = () => {
     const { authenticated, user } = useAuth();
@@ -19,7 +21,8 @@ const AppRoutes = () => {
                     <Route path="/" element={<Navigate to="/login" />} />
                     <Route path="/login" element={<><Login /></>} />
                     <Route element={<AdminRoutes />}>
-                        <Route path="/cadastro" element={<><Navbar /></>} />
+                        <Route path="/erros" element={<><Navbar /><Principal /></>} />
+                        <Route path="/cadastro" element={<><Navbar /><Cadastro /></>} />
                     </Route>
                 </Routes>
             </BrowserRouter>
