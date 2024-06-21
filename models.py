@@ -24,7 +24,7 @@ class Conference(Base):
     data_correcao_erro = Column(Date)
     data_cadastro_erro = Column(Date, default=datetime.now)
     codigo_do_item = Column(Integer)
-    codigo_de_barras = Column(Integer)
+    codigo_de_barras = Column(String, default='0000000000000')
     id_motivo = Column(Integer)
     quantidade = Column(Float)
     valor = Column(Float)

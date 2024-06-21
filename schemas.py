@@ -19,6 +19,7 @@ class ConferenceResponse(BaseModel):
     setor: str
     data_ocorrencia_erro: date
     codigo_do_item: int
+    codigo_de_barras: str
     id_motivo: int
     quantidade: float
     valor: float
@@ -31,7 +32,7 @@ class ConferenceUpdate(BaseModel):
     data_ocorrencia_erro: date
     data_correcao_erro: date
     codigo_do_item: int
-    codigo_de_barras: int
+    codigo_de_barras: str
     id_motivo: int
     quantidade: float
     valor: float
