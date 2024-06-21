@@ -21,7 +21,7 @@ class Conference(Base):
     id_checagem = Column(Integer)
     setor = Column(String)
     data_ocorrencia_erro = Column(Date)
-    data_correcao_erro = Column(Date, default='0000-00-00')
+    data_correcao_erro = Column(Date, default='1999-01-01')
     data_cadastro_erro = Column(Date, default=datetime.now)
     codigo_do_item = Column(Integer)
     codigo_de_barras = Column(String, default='0000000000000')
