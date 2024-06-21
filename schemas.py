@@ -27,6 +27,7 @@ class ConferenceResponse(BaseModel):
     valor: float
     obs: str
     responsavel_pelo_erro: str
+    usuario_lancamento_erro: str
     
 class ConferenceUpdate(BaseModel):
     loja: int
