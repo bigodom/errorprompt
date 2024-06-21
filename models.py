@@ -21,13 +21,13 @@ class Conference(Base):
     id_checagem = Column(Integer)
     setor = Column(String)
     data_ocorrencia_erro = Column(Date)
-    data_correcao_erro = Column(Date)
+    data_correcao_erro = Column(Date, default='0000-00-00')
     data_cadastro_erro = Column(Date, default=datetime.now)
     codigo_do_item = Column(Integer)
     codigo_de_barras = Column(String, default='0000000000000')
     id_motivo = Column(Integer)
     quantidade = Column(Float)
     valor = Column(Float)
-    obs = Column(String)
+    obs = Column(String, default='')
     responsavel_pelo_erro = Column(String)
-    usuario_lancamento_erro = Column(String) #quem errou, quem ta lançando erro, obs, valor
+    usuario_lancamento_erro = Column(String, default='') #quem errou, quem ta lançando erro, obs, valor
