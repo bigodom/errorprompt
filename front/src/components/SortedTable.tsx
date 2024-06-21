@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import './SortedTable.css';
 
 interface TableData {
@@ -10,9 +10,11 @@ interface SortableTableProps {
   data: TableData[];
   columns: string[];
   columnDisplayNames: { [key: string]: string }
+  onUpdate: (id: number) => void;
+  onDelete: (id: number) => void;
 }
 
-const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisplayNames }) => {
+const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisplayNames, onUpdate, onDelete }) => {
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'ascending' | 'descending' } | null>(null);
 
   const sortedData = useMemo(() => {
@@ -71,6 +73,14 @@ const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisp
               {columns.map((column) => (
                 <td key={column}>{row[column]}</td>
               ))}
+              <td>
+                <Button variant="warning" onClick={() => onUpdate(row.id as number)} className="me-2">
+                  Atualizar
+                </Button>
+                <Button variant="danger" onClick={() => onDelete(row.id as number)}>
+                  Excluir
+                </Button>
+              </td>
             </tr>
           ))}
         </tbody>

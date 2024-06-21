@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SortableTable from "../../components/SortedTable";
 import { Conference } from "../../types/Conference";
 import api from "../../services/useApi";
+import { useNavigate } from "react-router-dom";
 
 
 const Principal = () => {
@@ -43,10 +44,26 @@ const Principal = () => {
         'codigo_de_barras', 'id_motivo', 'quantidade', 'valor', 'obs', 'responsavel_pelo_erro', 'usuario_lancamento_error'
     ]
 
+    const handleDelete = async (id: number) => {
+        try {
+            await api.delete(`/conferences/${id}`);
+            fetchProducts();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const navigate = useNavigate();
+
+    const handleUpdate = (id: number) => {
+        navigate(`/atualizar/${id}`);
+    }
+    
+
     return (
         <div>
             <h1>Principal</h1>
-            <SortableTable data={conferences} columns={columns} columnDisplayNames={columnsDisplayNames} />
+            <SortableTable data={conferences} columns={columns} columnDisplayNames={columnsDisplayNames} onDelete={handleDelete} onUpdate={handleUpdate} />
         </div>
     );
 }

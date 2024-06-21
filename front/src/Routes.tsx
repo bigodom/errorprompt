@@ -4,6 +4,7 @@ import Login from "./pages/Login/Login";
 import Navbar from "./components/Navbar";
 import Principal from "./pages/principal/Principal";
 import Cadastro from "./pages/Cadastro/Cadastro";
+import AtualizaCadastro from "./pages/Cadastro/AtualizaCadastro";
 
 const AdminRoutes = () => {
     const { authenticated, user } = useAuth();
@@ -23,6 +24,7 @@ const AppRoutes = () => {
                     <Route element={<AdminRoutes />}>
                         <Route path="/erros" element={<><Navbar /><Principal /></>} />
                         <Route path="/cadastro" element={<><Navbar /><Cadastro /></>} />
+                        <Route path="/atualizar/:id" element={<><Navbar /><AtualizaCadastro /></>} />
                     </Route>
                 </Routes>
             </BrowserRouter>
