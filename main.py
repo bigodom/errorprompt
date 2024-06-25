@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from database import engine, Base
-from crud import conference_crud
+from crud import conference_crud, login_crud
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -21,3 +21,4 @@ app.add_middleware(
 Base.metadata.create_all(bind=engine)
 
 app.include_router(conference_crud.router, tags=['Conference'])
+app.include_router(login_crud.router, tags=['Login'])
