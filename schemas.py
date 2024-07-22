@@ -3,11 +3,11 @@ from datetime import date
 
 class ConferenceCreate(BaseModel):
     loja: int
-    id_checagem: int
+    checagem: str
     setor: str
     data_ocorrencia_erro: date
     codigo_do_item: int
-    id_motivo: int
+    motivo: str
     quantidade: float
     valor: float
     responsavel_pelo_erro: str
@@ -15,32 +15,34 @@ class ConferenceCreate(BaseModel):
 class ConferenceResponse(BaseModel):
     id: int
     loja: int
-    id_checagem: int
+    checagem: str
     setor: str
     data_ocorrencia_erro: date
     data_cadastro_erro: date
     data_correcao_erro: date
     codigo_do_item: int
-    codigo_de_barras: str
-    id_motivo: int
+    motivo: str
     quantidade: float
     valor: float
-    obs: str
+    obs1: str
+    obs2: str
+    obs_correcao: str
     responsavel_pelo_erro: str
     usuario_lancamento_erro: str
     
 class ConferenceUpdate(BaseModel):
     loja: int
-    id_checagem: int
+    checagem: str
     setor: str
     data_ocorrencia_erro: date
     data_correcao_erro: date
     codigo_do_item: int
-    codigo_de_barras: str
-    id_motivo: int
+    motivo: str
     quantidade: float
     valor: float
-    obs: str
+    obs1: str
+    obs2: str
+    obs_correcao: str
     responsavel_pelo_erro: str
     usuario_lancamento_erro: str
 
@@ -49,6 +51,7 @@ class UserBase(BaseModel):
     name: str
     login: str
     role: str
+    password: str
 
 class UserLogin(BaseModel):
     login: str

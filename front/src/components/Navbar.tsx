@@ -20,8 +20,9 @@ const Navbar = () => {
                 <span></span>
             </div>
             <ul className={`navbar-list ${isMobileMenuOpen ? 'open' : ''}`}>
-                <li><Link to="/erros" onClick={toggleMobileMenu}>Produtos</Link></li>
                 <li><Link to="/cadastro" onClick={toggleMobileMenu}>Cadastro</Link></li>
+                <li><Link to="/erros" onClick={toggleMobileMenu}>Erros</Link></li>
+                <li><Link to="/erros/corrigidos" onClick={toggleMobileMenu}>Corrigidos</Link></li>
             </ul>
             <div className="user-actions">
                 <span>Olá, {useAuth().user?.name}</span>

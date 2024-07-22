@@ -15,7 +15,7 @@ const Login: React.FC = () => {
       await login(loginInput, passwordInput);
       // Se o login for bem-sucedido, redirecione o usuário para a página principal ou outra página desejada
       // Você pode fazer isso utilizando, por exemplo, o React Router
-      navigate('/produtos');
+      navigate('/erros');
     } catch (error) {
       if ((error as any).response) {
         if ((error as any).response.status === 401) {

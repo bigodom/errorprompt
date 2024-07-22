@@ -12,9 +12,10 @@ interface SortableTableProps {
   columnDisplayNames: { [key: string]: string }
   onUpdate: (id: number) => void;
   onDelete: (id: number) => void;
+  onVisualize: (id: number) => void;
 }
 
-const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisplayNames, onUpdate, onDelete }) => {
+const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisplayNames, onUpdate, onDelete, onVisualize }) => {
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'ascending' | 'descending' } | null>(null);
 
   const sortedData = useMemo(() => {
@@ -56,7 +57,7 @@ const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisp
   };
 
   return (
-    <div className="table-wrapper" style={{ width: '1200px', height: '600px', overflow: 'auto', margin: '0 auto' }}>
+    <div className="table-wrapper" style={{ width: '1400px', height: '600px', overflow:"auto", margin: '0 auto' }}>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -65,6 +66,7 @@ const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisp
                 {columnDisplayNames[column]} {getSortIcon(column)}
               </th>
             ))}
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -74,6 +76,9 @@ const SortableTable: React.FC<SortableTableProps> = ({ data, columns, columnDisp
                 <td key={column}>{row[column]}</td>
               ))}
               <td>
+                <Button variant="primary" onClick={() => onVisualize(row.id as number)} className="me-2">
+                  Visualizar
+                </Button>
                 <Button variant="warning" onClick={() => onUpdate(row.id as number)} className="me-2">
                   Atualizar
                 </Button>
