@@ -10,7 +10,7 @@ const Cadastro: React.FC = () => {
   const [setores] = useState<string[]>([
     "ACOUGUE", "ACOUGUE DESOSSA", "ALMOXARIFADO", "APONTAMENTO", "APRENDIZ", "CADASTRO", "COMPRAS", "CONTABILIDADE", "CREDIARIO", "DEPARTAMENTO FISCAL", "DEPARTAMENTO PESSOAL",
     "DEPOSITO", "FATURAMENTO", "FINANCEIRO", "FRENTE DE CAIXA", "FRIGORIFICO", "FRIOS", "GALPÃO", "GERENCIA", "GUARDA VOLUMES", "HORTIFRUTI", "INFORMATICA", "INFORMACAO", "LOTE", "LIMPEZA",
-    "LIMPEZA EXTERNA", "MANUTENCAO", "MARKETING", "PADARIA", "PRÉ LOTE", "PROCESSADOS", "QUALIDADE", "RECEBIMENTO", "RECICLAGEM", "REFEITORIO", "REPOSICAO", "RH", "SEGURANCA", "SUSHI", "TESOURARIA",
+    "LIMPEZA EXTERNA", "MANUTENCAO", "MARKETING", "PADARIA", "PRÉ LOTE", "PREVENÇÃO", "PROCESSADOS", "QUALIDADE", "RECEBIMENTO", "RECICLAGEM", "REFEITORIO", "REPOSICAO", "RH", "SEGURANCA", "SUSHI", "TESOURARIA",
     "TRANSFERÊNCIA", "TRANSPORTE", "VENDAS", "NÃO IDENTIFICADO"
   ]);
   const [selectedSetor, setSelectedSetor] = useState<string>("");
@@ -23,12 +23,15 @@ const Cadastro: React.FC = () => {
     { nome: "Lista de validade" },
     { nome: "Lista de transferência" },
     { nome: "Informação do Compras" },
-    { nome: "Informação do Vendas" }
+    { nome: "Informação do Vendas" },
+    { nome: "Fechamento de mês" },
+    { nome: "Conferência do sistema" }
   ];
   const motivoData = [
     { nome: "Recebimento incorreto de Mercadoria" },
     { nome: "Recebimento invertido" },
     { nome: "Entrada de nota errada quantidade" },
+    { nome: "Entrada de nota errada valor" },
     { nome: "Entrada de nota errada CFOP" },
     { nome: "Falta de baixa por troca" },
     { nome: "Falta de baixa por consumo" },

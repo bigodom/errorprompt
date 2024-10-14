@@ -54,7 +54,7 @@ const VisualizaCadastro = () => {
   }, [id]);
 
   return (
-    <Container className="d-flex flex-column align-items-center mt-5">
+    <Container className="d-flex flex-column align-items-center mt-5" style={{ width: "100%" , maxWidth: "568px"}}>
       <h1 className="mb-4">Relatório Erro</h1>
       <InputGroup className="mb-3">
         <InputGroup.Text>Loja</InputGroup.Text>
@@ -94,15 +94,15 @@ const VisualizaCadastro = () => {
       </InputGroup>
       <InputGroup className="mb-3">
         <InputGroup.Text>Observação 1</InputGroup.Text>
-        <FormControl type="text" name="obs1" value={conference.obs1} disabled />
+        <FormControl as="textarea" name="obs1" value={conference.obs1} disabled />
       </InputGroup>
       <InputGroup className="mb-3">
         <InputGroup.Text>Observação 2</InputGroup.Text>
-        <FormControl type="text" name="obs2" value={conference.obs2} disabled />
+        <FormControl as="textarea" name="obs2" value={conference.obs2} disabled />
       </InputGroup>
       <InputGroup className="mb-3">
         <InputGroup.Text>Observação da Correção</InputGroup.Text>
-        <FormControl type="text" name="obs_correcao" value={conference.obs_correcao} disabled />
+        <FormControl as="textarea" name="obs_correcao" value={conference.obs_correcao} disabled />
       </InputGroup>
       <InputGroup className="mb-3">
         <InputGroup.Text>Responsável Pelo Erro</InputGroup.Text>

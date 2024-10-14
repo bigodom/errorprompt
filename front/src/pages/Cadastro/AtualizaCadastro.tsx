@@ -93,7 +93,7 @@ const AtualizaCadastro = () => {
   return (
     <Container className="d-flex flex-column align-items-center mt-5">
       <h1 className="mb-4">Atualizar Conferência</h1>
-      <form onSubmit={handleUpdateConference} style={{ width: '100%', maxWidth: '600px' }}>
+      <form onSubmit={handleUpdateConference} style={{ width: '100%', maxWidth: '568px' }}>
         <InputGroup className="mb-3">
           <InputGroup.Text>Loja</InputGroup.Text>
           <FormControl type="text" name="loja" placeholder="Loja" value={conference.loja} onChange={handleChange} />
@@ -128,19 +128,19 @@ const AtualizaCadastro = () => {
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text>Valor</InputGroup.Text>
-          <FormControl type="text" name="valor" placeholder="Valor" value={conference.valor} onChange={handleChange} />
+          <FormControl type="text" name="valor" placeholder="Valor" value={((conference.valor).toString()).replace('.',',')} onChange={handleChange} />
         </InputGroup>
         <InputGroup className="mb-3">
-          <InputGroup.Text>Observação</InputGroup.Text>
-          <FormControl type="text" name="obs1" placeholder="Observação 1" value={conference.obs1} onChange={handleChange} />
+          <InputGroup.Text>Observação do Cadastro</InputGroup.Text>
+          <FormControl as="textarea" name="obs1" value={conference.obs1} onChange={handleChange} />
         </InputGroup>
         <InputGroup className="mb-3">
-          <InputGroup.Text>Observação</InputGroup.Text>
-          <FormControl type="text" name="obs2" placeholder="Observação 2" value={conference.obs2} onChange={handleChange} />
+          <InputGroup.Text>Observação Opcional</InputGroup.Text>
+          <FormControl as="textarea" name="obs2" value={conference.obs2} onChange={handleChange} />
         </InputGroup>
         <InputGroup className="mb-3">
-          <InputGroup.Text>Observação</InputGroup.Text>
-          <FormControl type="text" name="obs_correcao" placeholder="Observação Correção" value={conference.obs_correcao} onChange={handleChange} />
+          <InputGroup.Text>Observação da Correção</InputGroup.Text>
+          <FormControl as="textarea" name="obs_correcao" value={conference.obs_correcao} onChange={handleChange} />
         </InputGroup>
         <InputGroup className="mb-3">
           <InputGroup.Text>Responsável Pelo Erro</InputGroup.Text>
