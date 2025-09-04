@@ -13,6 +13,10 @@ def get_db():
     finally:
         db.close()
 
+@router.get("/")
+def read_root():
+    return {"message": "Welcome to the Conference API"}
+
 @router.post("/conferences/", response_model= ConferenceCreate)
 def create_conference(conference: ConferenceCreate, db: Session = Depends(get_db)):
     db_conference = Conference(**conference.model_dump())

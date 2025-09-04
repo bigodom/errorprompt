@@ -42,7 +42,7 @@ const Principal: React.FC = () => {
                 quantidade: (conference.quantidade.toFixed(2) as string).replace('.', ','),
                 valor: 'R$' + (conference.valor.toFixed(2) as string).replace('.', ',')
             }));
-
+                                                                                                                                                                                                                                       
             setConferences(formattedData);
         } catch (error) {
             console.error(error);
